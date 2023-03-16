@@ -4,11 +4,12 @@ import java.util.Arrays;
 
 public class Permutation {
     // 递归实现全排列
-    static int ans=0;
+    static int ans = 0;
+
     public static void permutation(int[] arr, int start, int end) {
         if (start == end) {
             System.out.println(Arrays.toString(arr));
-            ans+=check(arr);
+            ans += check(arr);
         } else {
             for (int i = start; i <= end; i++) {
                 swap(arr, start, i); // 交换元素
