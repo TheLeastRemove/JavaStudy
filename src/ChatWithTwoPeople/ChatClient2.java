@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.Socket;
 
-public class ChatClient {
+public class ChatClient2 {
     private static final String SERVER_IP = "localhost";
     private static final int SERVER_PORT = 5000;
 
