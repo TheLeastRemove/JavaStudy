@@ -6,8 +6,8 @@ import java.io.IOException;
 
 public class BookReader {
     public static void main(String[] args) {
-        try (FileReader fr = new FileReader("sourceMaterial/books.txt");
-             BufferedReader br = new BufferedReader(fr)) {
+        String FILEADDRESS="sourceMaterial/books.txt";
+        try (BufferedReader br = new BufferedReader(new FileReader(FILEADDRESS))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] tokens = line.split(",");
