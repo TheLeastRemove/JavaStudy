@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class BookReader {
     public static void main(String[] args) {
-        String FILEADDRESS="sourceMaterial/books.txt";
+        final String FILEADDRESS="sourceMaterial/books.txt";
         try (BufferedReader br = new BufferedReader(new FileReader(FILEADDRESS))) {
             String line;
             while ((line = br.readLine()) != null) {

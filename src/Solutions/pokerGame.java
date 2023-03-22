@@ -1,6 +1,6 @@
 package Solutions;
 
-public class demo {
+public class pokerGame {
         static int ans=0;
         static boolean[] isV=new boolean[9];
         public static void main(String[] args)
