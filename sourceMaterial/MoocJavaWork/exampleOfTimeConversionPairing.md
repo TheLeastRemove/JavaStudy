@@ -1,3 +1,6 @@
+### 一点简单的对拍示例
+> 24hour转12hour,与W的代码对拍。
+
 ```java
 
 import java.util.Objects;
