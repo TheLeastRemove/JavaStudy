@@ -1,8 +1,6 @@
 package Solutions;
 
-import java.util.Arrays;
-
-public class MatrixMultiplicationQM
+public class MatrixMultiplication
 {
 
 //    public static void main(String[] args)
