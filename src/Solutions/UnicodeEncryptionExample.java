@@ -8,6 +8,7 @@ import java.util.Random;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 import java.security.Key;
+import java.util.Scanner;
 
 public class UnicodeEncryptionExample {
 
@@ -15,13 +16,15 @@ public class UnicodeEncryptionExample {
 
         //String -> unicode -> encrypt -> (save and read key ) -> decrypt -> unicode -> String
 
-        String originalSentence = "Hello,World!";
+        Scanner input = new Scanner(System.in);
+        //String originalSentence = "Hello,World!";
+        String originalSentence = input.nextLine();
         int[] unicodeArray = convertToUnicodeArray(originalSentence);
 
         System.out.println("Original Sentence: " + originalSentence);
         System.out.println("Unicode Array: " + Arrays.toString(unicodeArray));
 
-        String fileName = "sourceMaterial/key.txt";
+        String fileName = "sourceMaterial/key";
         int[] encryptedArray;
         try {
             encryptedArray = encryptUnicodeArray(unicodeArray, fileName);
@@ -146,7 +149,7 @@ public class UnicodeEncryptionExample {
         return intArray;
     }
 
-    public static void saveKeyToFile(byte[] key, String fileName) {
+    private static void saveKeyToFile(byte[] key, String fileName) {
         try (FileOutputStream fos = new FileOutputStream(fileName)) {
             fos.write(key);
         } catch (IOException e) {
@@ -154,7 +157,7 @@ public class UnicodeEncryptionExample {
         }
     }
 
-    public static byte[] readKeyFromFile(String fileName) throws IOException {
+    private static byte[] readKeyFromFile(String fileName) throws IOException {
         try (FileInputStream fis = new FileInputStream(fileName)) {
             byte[] key = new byte[fis.available()];
             if (fis.read(key) != -1) {

@@ -11,9 +11,13 @@ public class ChatClient {
     private static final String SERVER_IP = "localhost";
     private static final int SERVER_PORT = 5000;
 
+    private static final String EXIT_COMMAND = "exit";
+
+    private static final String SERVER_DISCONNECTED_MESSAGE = "Server disconnected";
+
     public static void main(String[] args) throws IOException {
         Socket socket = new Socket(SERVER_IP, SERVER_PORT);
-        System.out.println("Connected to chat server");
+        System.out.println(SERVER_DISCONNECTED_MESSAGE);
 
         BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in));
         InputStream inputStream = socket.getInputStream();
@@ -38,8 +42,8 @@ public class ChatClient {
 
         String inputLine;
         while ((inputLine = userInput.readLine()) != null) {
-            outputStream.write((username+':'+inputLine).getBytes());
-            if ("exit".equals(inputLine)) {
+            outputStream.write((username + ':' + inputLine).getBytes());
+            if (EXIT_COMMAND.equals(inputLine)) {
                 break;
             }
         }

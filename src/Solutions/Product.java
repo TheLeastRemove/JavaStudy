@@ -96,6 +96,7 @@ class Toy extends Product {
     public void showInfo() {
         System.out.println("商品号：" + super.getId() + "，商品名：" + super.getName() + "，价格：" + super.getPrice() + "，型号：" + model + "，材料：" + material + "，安全级别：" + safetyLevel);
     }
+
 }
 
 class TestProduct {
@@ -109,5 +110,6 @@ class TestProduct {
         toy.showInfo();
         ((Toy) toy).setSafetyLevel("食用级");
         toy.showInfo();
+
     }
 }
