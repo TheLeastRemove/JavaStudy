@@ -9,7 +9,6 @@ public class Permutations {
         List<List<Integer>> result = permute(nums);
         System.out.println(result);
 
-
     }
 
     public static List<List<Integer>> permute(int[] nums) {

@@ -1,31 +1,12 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
+import java.util.regex.*;
 
 public class Main {
     public static void main(String[] args) {
-        try {
-            File file = new File("input.txt");
-            Scanner scanner = new Scanner(file);
-
-            int[][] matrix = new int[6][6];
-
-            for (int i = 0; i < 6; i++) {
-                for (int j = 0; j < 6; j++) {
-                    matrix[i][j] = scanner.nextInt();
-                }
-            }
-
-            for (int i = 0; i < 6; i++) {
-                for (int j = 0; j < 6; j++) {
-                    System.out.print(matrix[i][j] + " ");
-                }
-                System.out.println();
-            }
-
-            scanner.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+        String text = "8  赵子涵 008 教授 数学系 微积分学与线性代数学基础 5\n\n9   张天翔  009  讲师  物理系  热力学与统计物理学  6\n\n10   钱宇航  010  教授  数学系  数值分析基础  5\n";
+        Pattern pattern = Pattern.compile("^\\s*(\\d+)", Pattern.MULTILINE);
+        Matcher matcher = pattern.matcher(text);
+        while (matcher.find()) {
+            System.out.println(matcher.group(1));
         }
     }
 }

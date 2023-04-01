@@ -1,8 +1,10 @@
 package Solutions;
 
+import java.beans.Customizer;
+
 public abstract class Product {
-    private String id;
-    private String name;
+    private final String id;
+    private final String name;
     private double price;
 
     public Product(String id, String name, double price) {
@@ -99,6 +101,75 @@ class Toy extends Product {
 
 }
 
+class Customer{
+
+    private final String name;
+    private final String id;
+    private String address;
+    private String phone;
+
+    protected Customer(String name, String id, String address, String phone) {
+        this.name = name;
+        this.id = id;
+        this.address = address;
+        this.phone = phone;
+    }
+
+    private Customer(String name, String id) {
+        this.name = name;
+        this.id = id;
+    }
+
+    private Customer(String name, String id, String address) {
+        this.name = name;
+        this.id = id;
+        this.address = address;
+    }
+
+    public static Customer createCustomer(String name, String id, String address, String phone) {
+        return new Customer(name, id, address, phone);
+    }
+
+    public static Customer createCustomer(String name, String id) {
+        return new Customer(name, id);
+    }
+
+    public static Customer createCustomer(String name, String id, String address) {
+        return new Customer(name, id, address);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void showInfo() {
+        System.out.println("姓名：" + name + "，会员卡号：" + id + "，地址：" + address + "，电话：" + phone);
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+}
+
+
+
 class TestProduct {
     public static void main(String[] args) {
         Product food = new Food("001", "菠萝", 8.5, "2022-03-22", "2022-04-22", "水果、热带");
@@ -111,5 +182,7 @@ class TestProduct {
         ((Toy) toy).setSafetyLevel("食用级");
         toy.showInfo();
 
+        var xiaoMing = new Customer("小明", "001", "北京市海淀区", "12345678901");
+        xiaoMing.showInfo();
     }
 }
