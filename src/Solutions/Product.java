@@ -2,7 +2,9 @@ package Solutions;
 
 import java.beans.Customizer;
 
-public abstract class Product {
+public abstract sealed class Product
+    permits Food, Toy
+{
     private final String id;
     private final String name;
     private double price;
@@ -32,7 +34,7 @@ public abstract class Product {
     public abstract void showInfo();
 }
 
-class Food extends Product {
+final class Food extends Product {
     private String productionDate;
     private String expirationDate;
     private String mainIngredient;
@@ -66,7 +68,7 @@ class Food extends Product {
     }
 }
 
-class Toy extends Product {
+final class Toy extends Product {
     private String model;
     private String material;
     private String safetyLevel;
@@ -184,5 +186,9 @@ class TestProduct {
 
         var xiaoMing = new Customer("小明", "001", "北京市海淀区", "12345678901");
         xiaoMing.showInfo();
+
+        var xiaoWang = Customer.createCustomer("小王", "002", "北京市海淀区", "12345678901");
+        xiaoWang.showInfo();
+
     }
 }

@@ -42,6 +42,7 @@ public class UnicodeEncryptionExample {
 
         String decryptedSentence = convertToString(decryptedArray);
         System.out.println("Decrypted Sentence: " + decryptedSentence);
+
     }
 
     private static int[] convertToUnicodeArray(String sentence) {
