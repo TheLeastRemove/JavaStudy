@@ -3,8 +3,7 @@ package Solutions;
 import java.beans.Customizer;
 
 public abstract sealed class Product
-    permits Food, Toy
-{
+        permits Food, Toy {
     private final String id;
     private final String name;
     private double price;
@@ -103,7 +102,7 @@ final class Toy extends Product {
 
 }
 
-class Customer{
+class Customer {
 
     private final String name;
     private final String id;
@@ -157,8 +156,11 @@ class Customer{
     }
 
     public void showInfo() {
-        System.out.println("姓名：" + name + "，会员卡号：" + id + "，地址：" + address + "，电话：" + phone);
+        Runnable r = () -> {
+            System.out.println("姓名：" + name + "，会员卡号：" + id + "，地址：" + address + "，电话：" + phone);
+        };
     }
+
 
     public void setAddress(String address) {
         this.address = address;
@@ -169,7 +171,6 @@ class Customer{
     }
 
 }
-
 
 
 class TestProduct {

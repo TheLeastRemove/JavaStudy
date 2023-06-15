@@ -10,10 +10,14 @@ import javax.crypto.spec.SecretKeySpec;
 import java.security.Key;
 import java.util.Scanner;
 
-public class UnicodeEncryptionExample {
+public class UnicodeEncryptionExample implements Runnable {
 
     public static void main(String[] args) {
+        new UnicodeEncryptionExample().run();
+    }
 
+    @Override
+    public void run() {
         //String -> unicode -> encrypt -> (save and read key ) -> decrypt -> unicode -> String
 
         Scanner input = new Scanner(System.in);
@@ -33,7 +37,7 @@ public class UnicodeEncryptionExample {
         }
         System.out.println("Encrypted Array: " + Arrays.toString(encryptedArray));
 
-        int[] decryptedArray;
+        int[] decryptedArray; // = decryptUnicodeArray(encryptedArray);
         try {
             decryptedArray = decryptUnicodeArray(encryptedArray, fileName);
         } catch (Exception e) {
@@ -42,6 +46,7 @@ public class UnicodeEncryptionExample {
 
         String decryptedSentence = convertToString(decryptedArray);
         System.out.println("Decrypted Sentence: " + decryptedSentence);
+
 
     }
 
@@ -167,6 +172,7 @@ public class UnicodeEncryptionExample {
             return new byte[0];
         }
     }
+
 
 }
 
